@@ -1,0 +1,36 @@
+:host {
+  --link-text-color: #fff;
+  --nav-bg-color: #333;
+  --link-hover-text-color: #ff9800;
+}
+
+.navigation {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: var(--nav-bg-color);
+}
+
+.nav-list {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list-item {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.nav-list-item a {
+  color: var(--link-text-color);           
+  font-weight: bold;      
+  font-size: 1.2rem;    
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.nav-list-item a.active {
+  color: var(--link-hover-text-color);
+}
