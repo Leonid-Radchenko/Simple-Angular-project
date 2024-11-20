@@ -6,7 +6,9 @@
 
 .navigation {
   text-align: center;
-  padding: 1rem 0;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 1.5rem 0;
   background-color: var(--nav-bg-color);
 }
 
@@ -25,7 +27,7 @@
 .nav-list-item a {
   color: var(--link-text-color);           
   font-weight: bold;      
-  font-size: 1.2rem;    
+  font-size: 1.3rem;    
   &:hover {
     text-decoration: underline;
   }

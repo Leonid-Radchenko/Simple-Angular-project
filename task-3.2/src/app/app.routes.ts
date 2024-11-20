@@ -9,4 +9,5 @@ export const routes: Routes = [
   { path: 'contacts', 
     component: ContactPageComponent
   },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

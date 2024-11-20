@@ -1,0 +1,131 @@
+:host {
+  --white-text-color: #fff;
+  --label-text-color: #6b6b6b;
+  --green-text-color: #5ea19b;
+  --input-border-color: #cccccc;
+  --input-bg-color: #EFEFEF;
+  --button-bg-color: #1f1f1f;
+  --input-border-color--focus: #1f1f1f;
+}
+
+.contact-us-container {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: calc(100vh - 72px);
+}
+
+.contact-info {
+  color: var(--white-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1;
+  padding: 0 0 5rem 10rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+              url('../../assets/images/backgrounds/contact-us-bg-image.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.contact-info-group-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-info-group-title-icon {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  filter: invert(1) brightness(2);
+}
+
+.contact-info-group-title span {
+  font-size: 30px;
+}
+
+.contact-info-group p {
+  color: var(--green-text-color);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.form-container {
+  flex: 1;
+  height: 100%;
+  padding: 1rem;
+}
+
+.form-container-title {
+  text-align: center;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: var(--label-text-color);
+  font-size: 17px;
+  margin: 2rem 0 1rem 0;
+}
+
+.input,
+.textarea {
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid var(--input-border-color);
+  background-color: var(--input-bg-color);
+}
+
+.input:focus {
+  border-color: var(--input-border-color--focus);
+}
+
+.textarea {
+  max-width: 800px;
+  height: 150px;
+}
+
+.button-submit {
+  color: var(--white-text-color);
+  text-align: center;
+  margin-top: 3rem;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--button-bg-color);
+  text-transform: uppercase;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .contact-us-container {
+    flex-direction: column;
+  }
+
+  .form-container {
+    order: -1;
+  }
+
+  .contact-info {
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .contact-info-group {
+    text-align: center;
+    margin-top: 3rem;
+  }
+}
