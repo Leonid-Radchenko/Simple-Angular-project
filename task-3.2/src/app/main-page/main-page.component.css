@@ -1,0 +1,14 @@
+.main-page {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: calc(100vh - 72px);
+  padding: 2rem;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1440px;
+}

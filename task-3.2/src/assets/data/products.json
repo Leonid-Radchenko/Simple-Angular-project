@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Phone for Seniors",
+    "price": 39.99,
+    "originalPrice": 189.99,
+    "discount": 79,
+    "description": "Easy-to-use phone with large buttons and bright display.",
+    "brand": "Amazon",
+    "tags": ["Free Shipping", "New", "00:02:29"],
+    "image": "assets/images/products/product1.png",
+    "highlight": true
+  },
+  {
+    "name": "Smartwatch",
+    "price": 69.99,
+    "originalPrice": 159.99,
+    "discount": 56,
+    "description": "Stylish smartwatch for monitoring activity and health.",
+    "brand": "Amazon",
+    "tags": ["Free Shipping", "New"],
+    "image": "assets/images/products/product2.png",
+    "highlight": false
+  },
+  {
+    "name": "Leather Belt",
+    "price": 45.99,
+    "originalPrice": 99.99,
+    "discount": 54,
+    "description": "Elegant leather belt made of high-quality natural leather.",
+    "brand": "Amazon",
+    "tags": ["Free Shipping", "New", "00:02:29"],
+    "image": "assets/images/products/product3.png",
+    "highlight": false
+  },
+  {
+    "name": "Wireless Headphones",
+    "price": 49.99,
+    "originalPrice": 129.99,
+    "discount": 62,
+    "description": "Stylish wireless headphones with high-quality sound and noise cancellation.",
+    "brand": "Amazon",
+    "tags": ["Free Shipping", "New"],
+    "image": "assets/images/products/product4.png",
+    "highlight": false
+  },
+  {
+    "name": "Robot Vacuum Cleaner",
+  "price": 55.99,
+  "originalPrice": 129.99,
+  "discount": 57,
+  "description": "Efficient robot vacuum cleaner for keeping your floors clean effortlessly.",
+  "brand": "Amazon",
+  "tags": ["Free Shipping", "New"],
+  "image": "assets/images/products/product5.png",
+  "highlight": false
+  },
+  {
+    "name": "Canon Camera",
+    "price": 109.99,
+    "originalPrice": 199.99,
+    "discount": 45,
+    "description": "Professional digital camera for beginner photographers.",
+    "brand": "Canon",
+    "tags": ["Free Shipping", "New"],
+    "image": "assets/images/products/product6.png",
+    "highlight": false
+  },
+  {
+    "name": "Mountain Bike",
+    "price": 299.99,
+    "originalPrice": 499.99,
+    "discount": 40,
+    "description": "Durable mountain bike for outdoor adventures and leisure rides.",
+    "brand": "Amazon",
+    "tags": ["Free Shipping", "New"],
+    "image": "assets/images/products/product7.png",
+    "highlight": false
+  },
+  {
+    "name": "Sony PlayStation 5 Pro",
+    "price": 449.99,
+    "originalPrice": 549.99,
+    "discount": 18,
+    "description": "Powerful gaming console for the ultimate gaming experience.",
+    "brand": "Sony",
+    "tags": ["Free Shipping", "New"],
+    "image": "assets/images/products/product8.png"
+  }
+]

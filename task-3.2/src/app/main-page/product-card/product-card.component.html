@@ -1,0 +1,17 @@
+<div class="product-card" [ngClass]="{ 'highlight': product.highlight }">
+  <div class="discount-badge" *ngIf="product.discount">
+    {{ product.discount }}% off
+  </div>
+  <img class="product-image" [src]="product.image" [alt]="product.name" />
+  <div class="product-info">
+    <h2 class="product-price">
+      ${{ product.price }}
+      <span class="original-price" *ngIf="product.originalPrice">${{ product.originalPrice }}</span>
+    </h2>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-brand">{{ product.brand }}</p>
+    <div class="product-tags">
+      <span *ngFor="let tag of product.tags">{{ tag }}</span>
+    </div>
+  </div>
+</div>
