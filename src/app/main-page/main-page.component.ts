@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-main-page',
@@ -11,12 +12,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('assets/data/products.json').subscribe({
+    this.http.get<Product[]>('assets/data/products.json').subscribe({
       next: (data) => {
         this.products = data;
       },
