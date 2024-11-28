@@ -1,34 +1,40 @@
 :host {
-  --border-color: #f0f0f0;
-  --white-color: #fff;
-  --highlight-border-color: #ff5252;
-  --discount-badge-bd-color: #ff5252;
-  --product-price-color: #f80202;
-  --product-brand-color: #888;
-  --product-origin-price-color: #888;
-  --product-description-color: #444444;
-  --product-tags-bg-color: #f9f9f9;
-  --product-tags-color: #808080;
+  --font-family: 'Roboto';
+  --border-color: #e0e0e0;
+  --card-bg-color: #ffffff;
+  --highlight-border-color: #ff7043;
+  --discount-badge-bg: linear-gradient(45deg, #ff7043, #ff5252);
+  --product-price-color: #2196f3;
+  --product-origin-price-color: #b0bec5;
+  --product-description-color: #616161;
+  --product-description-color--hover: #424242;
+  --product-brand-color: #757575;
+  --product-tags-bg-color: #e3f2fd;
+  --product-tags-color: #1976d2;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --brand-text-color: #26a69a;
+  --brand-text-color--hover: #00796b;
 }
 
 .product-card {
-  font-family: Circe, sans-serif;
-  line-height: 1.2;
+  font-family: var(--font-family);
+  line-height: 1.6;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 300px;
-  height: 500px;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: var(--white-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: flex-start;
+  align-items: center;
+  width: 320px;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 16px;
+  background: var(--card-bg-color);
+  box-shadow: 0 8px 16px var(--shadow-light), 0 4px 8px var(--shadow-dark);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px var(--shadow-dark);
+    transform: translateY(-12px) scale(1.05);
   }
 }
 
@@ -37,65 +43,107 @@
 }
 
 .discount-badge {
-  color: var(--white-color);
+  color: var(--card-bg-color);
   font-size: 14px;
+  font-weight: bold;
   position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 1;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  background-color: var(--discount-badge-bd-color);
+  background: var(--discount-badge-bg);
+  box-shadow: 0 4px 8px var(--shadow-dark);
 }
 
 .product-image {
+  margin-bottom: 1rem;
   width: 100%;
-  height: 250px;
-  margin: 1rem 0;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
 }
 
 .product-info {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: calc(100% - 250px);
+  gap: 1rem;
 }
 
 .product-price {
   color: var(--product-price-color);
-  font-size: 20px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5rem;
   margin: 0;
 }
 
 .product-price .original-price {
   color: var(--product-origin-price-color);
-  font-size: 14px;
+  font-size: 1rem;
   text-decoration: line-through;
 }
 
 .product-description {
   color: var(--product-description-color);
-  font-size: 16px;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 1rem 0;
-  height: 40px;
+  height: 54px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #424242;
+  } 
 }
 
 .product-brand {
-  color: var(--product-brand-color);
-  font-size: 14px;
+  color: var(--brand-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+  &:hover {
+    color: var(--brand-text-color--hover);
+    transform: scale(1.1);
+  }
 }
 
 .product-tags {
-  color: var(--product-tags-color);
-  font-size: 14px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
   margin-top: 1rem;
 }
 
 .product-tags span {
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
+  color: var(--product-tags-color);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.4rem 0.6rem;
+  border-radius: 16px;
   background-color: var(--product-tags-bg-color);
+  box-shadow: 0 2px 4px var(--shadow-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-tags span:hover {
+  color: #ffffff;
+  background-color: var(--product-tags-color);
 }

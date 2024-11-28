@@ -1,10 +1,12 @@
 :host {
+  --font-family: 'Roboto', sans-serif;
   --link-text-color: #fff;
   --nav-bg-color: #333;
   --link-hover-text-color: #ff9800;
 }
 
 .navigation {
+  font-family: var(--font-family);
   text-align: center;
   margin: 0 auto;
   max-width: 1440px;
@@ -21,15 +23,18 @@
 
 .nav-list-item {
   display: inline;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
 }
 
 .nav-list-item a {
   color: var(--link-text-color);           
-  font-weight: bold;      
-  font-size: 1.3rem;    
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s, text-decoration 0.3s;
   &:hover {
-    text-decoration: underline;
+    color: var(--link-hover-text-color);
   }
 }
 
