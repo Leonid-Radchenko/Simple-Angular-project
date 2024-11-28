@@ -1,6 +1,9 @@
 <nav class="navigation">
   <ul class="nav-list">
-    <li class="nav-list-item"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> {{ storeLinkText }} </a></li>
-    <li class="nav-list-item"><a routerLink="/contacts" routerLinkActive="active"> {{ contactUsLinkText }} </a></li>
+    <li class="nav-list-item" *ngFor="let link of navLinks">
+      <a [routerLink]="link.url" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        {{ link.title }}
+      </a>
+    </li>
   </ul>
 </nav>
