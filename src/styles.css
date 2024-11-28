@@ -9,7 +9,10 @@
   box-sizing: inherit;
 }
 
-a, button, input {
+a, 
+button, 
+input,
+address {
   all: unset;
 }
 

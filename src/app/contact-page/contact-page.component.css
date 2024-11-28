@@ -45,7 +45,8 @@
   font-size: 30px;
 }
 
-.contact-info-group p {
+.contact-info-group p,
+.address {
   color: var(--green-text-color);
   font-size: 22px;
   margin-bottom: 10px;
