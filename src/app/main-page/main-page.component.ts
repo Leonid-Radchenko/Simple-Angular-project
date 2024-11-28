@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Product } from '../models/product.model';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-main-page',
@@ -14,16 +14,16 @@ import { Product } from '../models/product.model';
 export class MainPageComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.http.get<Product[]>('assets/data/products.json').subscribe({
+    this.productService.getProducts().subscribe({
       next: (data) => {
         this.products = data;
       },
       error: (err) => {
         console.error('Error loading products:', err);
-      }
+      },
     });
   }
 }
