@@ -1,11 +1,20 @@
 export interface Product {
-  name: string;
+  id: number;
+  imgUrl: string;
   price: number;
-  originalPrice: number;
   discount: number;
+  main: boolean;
+  shop: string;
+  name: string;
   description: string;
-  brand: string;
-  tags: string[];
-  image: string;
-  highlight: boolean;
+  shipping: string | null;
+  discountUntil: string;
+  isNew: boolean;
+  color: string[];
+  size: string[];
+  review: {
+    author: string;
+    text: string;
+    rating: number;
+  }[];
 }

@@ -1,7 +1,7 @@
 <div class="main-page">
   <div class="product-list">
     <app-product-card
-      *ngFor="let product of products"
+      *ngFor="let product of products | sortBy: 'discount': 'desc'"
       [product]="product">
     </app-product-card>
   </div>

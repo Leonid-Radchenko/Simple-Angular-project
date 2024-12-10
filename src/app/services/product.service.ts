@@ -1,17 +1,17 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
+import { data } from '../../assets/data/data';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private productsUrl = 'assets/data/products.json';
+  private productsSubject = new BehaviorSubject<Product[]>(data);
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productsUrl);
+    return this.productsSubject.asObservable();
   }
 }

@@ -1,17 +1,15 @@
-<div class="product-card" [ngClass]="{ 'highlight': product.highlight }">
-  <div class="discount-badge" *ngIf="product.discount">
-    {{ product.discount }}% off
+<div class="product-card" [ngStyle]="{borderColor: getDiscountColor()}">
+  <div class="discount-badge" [ngStyle]="{backgroundColor: getDiscountColor()}">
+    {{ product.discount }}% OFF
   </div>
-  <img class="product-image" [src]="product.image" [alt]="product.name" />
+  <img class="product-image" [src]="product.imgUrl" alt="{{ product.name }}" />
   <div class="product-info">
-    <h2 class="product-price">
-      ${{ product.price }}
-      <span class="original-price" *ngIf="product.originalPrice">${{ product.originalPrice }}</span>
-    </h2>
-    <p class="product-description">{{ product.description }}</p>
-    <p class="product-brand">{{ product.brand }}</p>
-    <div class="product-tags">
-      <span *ngFor="let tag of product.tags">{{ tag }}</span>
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description | limitCharacters:35 }}</p>
+    <p class="product-shop">{{ product.shop }}</p>
+    <div class="product-size">
+      <span *ngFor="let size of product.size">{{ size }}</span>
     </div>
+    <p class="product-price">Price: <span [ngStyle]="{ color: getDiscountColor() }">{{ getDiscountedPrice() | currency: 'EUR' }}</span></p>
   </div>
 </div>
