@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 import { SortByPipe } from '../pipes/sort-by.pipe';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -13,13 +14,11 @@ import { SortByPipe } from '../pipes/sort-by.pipe';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent implements OnInit {
-  products: Product[] = [];
+  products$: Observable<Product[]> | null = null;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    this.products$ = this.productService.getProducts();
   }
 }
