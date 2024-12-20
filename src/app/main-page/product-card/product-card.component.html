@@ -1,4 +1,4 @@
-<div class="product-card" [ngStyle]="{ borderColor: discountColor }">
+<div class="product-card" [ngStyle]="{ borderColor: discountColor }" (click)="onCardClick()">
   <div class="discount-badge" [ngStyle]="{ backgroundColor: discountColor }">
     {{ product.discount }}% OFF
   </div>
