@@ -1,1 +1,133 @@
-<p>product-details works!</p>
+<div class="product-details">
+  <div class="product-details__container">
+    <div class="product-details-images-container">
+      <div class="product-details-images-container__image" (click)="toggle('showImageModal')">
+        <img 
+          [src]="product?.imgUrl" 
+          [alt]="product?.name" 
+        />
+      </div>
+      <div class="modal-overlay" *ngIf="showImageModal" (click)="toggle('showImageModal')">
+        <img 
+          class="modal-image" 
+          [src]="product?.imgUrl" 
+          [alt]="product?.name" 
+        />
+      </div>
+      <p class="product-details__color">
+        {{ (product?.color ?? []).join(' / ') }}
+      </p>
+      <div class="product-details__thumbnails">
+        <img 
+        [src]="product?.imgUrl" 
+        [alt]="product?.name" 
+      />
+      </div>
+    </div>
+    <div class="product-details__info">
+      <h1>
+        {{ product?.name }}
+      </h1>
+      <div class="product-rating">
+        <div class="product-rating-info">
+          <div class="stars">
+            <span *ngFor="let star of stars">
+              <mat-icon>
+                {{ star.fill === 100 ? 'star' : (star.fill > 0 ? 'star_half' : 'star_outline') }}
+              </mat-icon>
+            </span>
+          </div>
+          <a 
+            href="javascript:void(0)" 
+            class="product-reviews"
+            [class.disabled]="!product?.review?.length" 
+            (click)="toggle('showReviewsModal')"
+          >
+          {{ product?.review?.length | reviewCount }}
+          </a>
+        </div>
+        <p class="product-id">
+          id: {{ productId }}
+        </p>
+      </div>
+
+      <div class="modal-overlay" *ngIf="showReviewsModal" (click)="toggle('showReviewsModal')">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <h2>Reviews</h2>
+          <div class="reviews">
+            <div class="review" *ngFor="let review of product?.review">
+              <div class="review-header">
+                <h3>{{ review.author }}</h3>
+                <div class="stars">
+                  <span *ngFor="let star of stars">
+                    <mat-icon>
+                      {{ star.fill === 100 ? 'star' : (star.fill > 0 ? 'star_half' : 'star_outline') }}
+                    </mat-icon>
+                  </span>
+                </div>
+              </div>
+              <p>{{ review.text }}</p>
+            </div>
+          </div>
+          <div class="close-btn-container">
+            <button class="close-button" (click)="toggle('showReviewsModal')">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="product-description__info">
+        {{ showFullDescription ? product?.description : (product?.description | slice:0:200) }}
+        <span *ngIf="(product?.description?.length ?? 0) > 200">
+          <a href="javascript:void(0)" (click)="toggle('showFullDescription')">
+            {{ showFullDescription ? '(Read Less)' : '... (Read More)' }}
+          </a>
+        </span>
+      </p>
+
+      <h3 class="product-price">
+        {{ product?.price | discountPrice: product?.discount }}
+      </h3>
+      
+      <div class="product-details__options">
+        <label for="color" class="bold-text">Color</label>
+        <select id="color" required>
+          <option value="" disabled selected>Select color</option>
+          <option 
+            *ngFor="let color of product?.color" 
+            [value]="color"
+          >
+          {{ color }}
+          </option>
+        </select>
+        
+        <label for="size" class="bold-text">Size</label>
+        <select id="size" required>
+          <option value="" disabled selected>Select size</option>
+          <option 
+            *ngFor="let size of product?.size" 
+            [value]="size"
+          >
+          {{ size }}
+          </option>
+        </select>
+      </div>
+      
+      <p><span class="bold-text">Availability:</span> Please select options</p>
+
+      <div class="product-qty">
+        <label for="quantity" class="bold-text">Quantity</label>
+        <input id="quantity" type="number" min="1" value="1" />
+      </div>
+      
+      
+      <div class="product-details__buttons">
+        <button class="btn btn-primary">
+          <mat-icon>shopping_cart</mat-icon> Add to cart
+        </button>
+        <button class="btn btn-secondary">
+          <mat-icon>favorite_border</mat-icon> Add to Wish List
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

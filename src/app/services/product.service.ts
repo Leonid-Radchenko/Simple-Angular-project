@@ -7,8 +7,12 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-
   getProducts(): Observable<Product[]> {
     return of(data);
+  }
+
+  getProductById(productId: string | number): Observable<Product | undefined> {
+    const product = data.find(p => p.id === +productId);
+    return of(product);
   }
 }

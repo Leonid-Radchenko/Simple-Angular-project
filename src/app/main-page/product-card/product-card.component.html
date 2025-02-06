@@ -11,7 +11,7 @@
       <span *ngFor="let size of product.size">{{ size }}</span>
     </div>
     <p class="product-price">
-      Price: <span [ngStyle]="{ color: discountColor }">{{ discountedPrice | currency: 'EUR' }}</span>
+      Price: <span [ngStyle]="{ color: discountColor }">{{ product.price | discountPrice: product.discount }}</span>
     </p>
   </div>
 </div>

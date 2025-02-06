@@ -1,12 +1,68 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../models/product.model';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/product.service';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { RatingService } from '../services/rating.service';
+import { ReviewCountPipe } from '../pipes/review-count.pipe';
+import { DiscountPricePipe } from '../pipes/discount-price.pipe';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule, 
+    MatIconModule, 
+    ReviewCountPipe, 
+    DiscountPricePipe,
+  ],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrl: './product-details.component.css',
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
 
+  productId!: number;
+  product!: Product | null;
+  stars: { fill: number }[] = [];
+  averageRating: number = 0;
+  showImageModal: boolean = false;
+  showFullDescription: boolean = false;
+  showReviewsModal: boolean = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private ratingService: RatingService
+  ) {}
+
+  ngOnInit(): void {
+    this.productId = Number(this.route.snapshot.paramMap.get('id'));
+    this.fetchProduct();
+  }
+
+  fetchProduct(): void {
+    this.productService.getProductById(this.productId).subscribe({
+      next: (data) => {
+        if (data) {
+          this.product = data;
+          this.calculateRating(this.product.review || []);
+        } else {
+          console.warn('Product not found');
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching product:', err);
+      }
+    });
+  }
+
+  calculateRating(reviews: { rating: number }[]): void {
+    this.averageRating = this.ratingService.calculateAverageRating(reviews);
+    this.stars = this.ratingService.calculateStarRating(this.averageRating);
+  }
+
+  toggle(property: 'showImageModal' | 'showFullDescription' | 'showReviewsModal'): void {
+    this[property] = !this[property];
+  }
 }

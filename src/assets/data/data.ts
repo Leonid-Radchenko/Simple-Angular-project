@@ -54,7 +54,7 @@ export const data: Product[] = [
     imgUrl:
       'https://cyclingmagazine.ca/wp-content/uploads/2018/03/Legend-2017-blue-angle-complete-1-of-1.jpg',
     price: 1030,
-    discount: 62,
+    discount: -50,
     main: false,
     shop: 'Alibaba',
     name: 'Banshee',
@@ -150,7 +150,7 @@ export const data: Product[] = [
       {
         author: 'Michel Denver',
         text: 'Good one, but I have some problem with wheels',
-        rating: 3,
+        rating: 1,
       },
     ],
   },
