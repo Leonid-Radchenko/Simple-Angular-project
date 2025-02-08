@@ -105,7 +105,7 @@ mat-icon {
   text-align: center;
 }
 
-.product-details__thumbnails {
+/* .product-details__thumbnails {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -117,6 +117,22 @@ mat-icon {
   height: 50px;
   border: 1px solid #ccc;
   cursor: pointer;
+} */
+
+.product-details__thumbnails {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 0 auto;
+  width: 60px;
+}
+
+.product-details__thumbnails img {
+  /* margin: 5px; */
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  object-fit: cover;
 }
 
 .product-details__info {
