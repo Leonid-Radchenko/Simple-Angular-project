@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RatingService } from '../services/rating.service';
 import { ReviewCountPipe } from '../pipes/review-count.pipe';
 import { DiscountPricePipe } from '../pipes/discount-price.pipe';
+import { Star } from '../models/star.model';
 
 @Component({
   selector: 'app-product-details',
@@ -24,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
 
   productId!: number;
   product!: Product | null;
-  stars: { fill: number }[] = [];
+  stars: Star[] = [];
   averageRating: number = 0;
   showImageModal: boolean = false;
   showFullDescription: boolean = false;
@@ -57,7 +58,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  calculateRating(reviews: { rating: number }[]): void {
+  calculateRating(reviews: Product["review"]): void {
     this.averageRating = this.ratingService.calculateAverageRating(reviews);
     this.stars = this.ratingService.calculateStarRating(this.averageRating);
   }

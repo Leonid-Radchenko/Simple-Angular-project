@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Star } from '../models/star.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,18 @@ export class RatingService {
     return total / reviews.length;
   }
 
-  calculateStarRating(rating: number): { fill: number }[] {
-    return Array(5).fill({ fill: 0 }).map((_, index) => {
-      const starIndex = index + 1;
-      if (starIndex <= Math.floor(rating)) {
-        return { fill: 100 };
-      } else if (starIndex === Math.floor(rating) + 1) {
-        return { fill: (rating % 1) * 100 };
-      } else {
-        return { fill: 0 };
-      }
-    });
+  calculateStarRating(rating: number): Star[] {
+    return Array(5)
+      .fill(null)
+      .map((_, index) => {
+        const starIndex = index + 1;
+        if (starIndex <= Math.floor(rating)) {
+          return { fill: 100 };
+        } else if (starIndex === Math.floor(rating) + 1) {
+          return { fill: (rating % 1) * 100 };
+        } else {
+          return { fill: 0 };
+        }
+      });
   }
 }
