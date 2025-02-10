@@ -1,13 +1,13 @@
 <div class="product-details">
   <div class="product-details__container">
     <div class="product-details-images-container">
-      <div class="product-details-images-container__image" (click)="toggle('showImageModal')">
+      <div class="product-details-images-container__image" (click)="toggleVisibility('showImageModal')">
         <img 
           [src]="product?.imgUrl" 
           [alt]="product?.name" 
         />
       </div>
-      <div class="modal-overlay" *ngIf="showImageModal" (click)="toggle('showImageModal')">
+      <div class="modal-overlay" *ngIf="showImageModal" (click)="toggleVisibility('showImageModal')">
         <img 
           class="modal-image" 
           [src]="product?.imgUrl" 
@@ -41,7 +41,7 @@
             href="javascript:void(0)" 
             class="product-reviews"
             [class.disabled]="!product?.review?.length" 
-            (click)="toggle('showReviewsModal')"
+            (click)="toggleVisibility('showReviewsModal')"
           >
           {{ product?.review?.length | reviewCount }}
           </a>
@@ -51,7 +51,7 @@
         </p>
       </div>
 
-      <div class="modal-overlay" *ngIf="showReviewsModal" (click)="toggle('showReviewsModal')">
+      <div class="modal-overlay" *ngIf="showReviewsModal" (click)="toggleVisibility('showReviewsModal')">
         <div class="modal-content" (click)="$event.stopPropagation()">
           <h2>Reviews</h2>
           <div class="reviews">
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="close-btn-container">
-            <button class="close-button" (click)="toggle('showReviewsModal')">Close</button>
+            <button class="close-button" (click)="toggleVisibility('showReviewsModal')">Close</button>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
       <p class="product-description__info">
         {{ showFullDescription ? product?.description : (product?.description | slice:0:200) }}
         <span *ngIf="(product?.description?.length ?? 0) > 200">
-          <a href="javascript:void(0)" (click)="toggle('showFullDescription')">
+          <a href="javascript:void(0)" (click)="toggleVisibility('showFullDescription')">
             {{ showFullDescription ? '(Read Less)' : '... (Read More)' }}
           </a>
         </span>

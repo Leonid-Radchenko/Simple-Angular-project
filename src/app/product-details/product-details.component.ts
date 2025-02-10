@@ -63,7 +63,7 @@ export class ProductDetailsComponent implements OnInit {
     this.stars = this.ratingService.calculateStarRating(this.averageRating);
   }
 
-  toggle(property: 'showImageModal' | 'showFullDescription' | 'showReviewsModal'): void {
-    this[property] = !this[property];
+  toggleVisibility(targetVisibility: 'showImageModal' | 'showFullDescription' | 'showReviewsModal'): void {
+    this[targetVisibility] = !this[targetVisibility];
   }
 }
