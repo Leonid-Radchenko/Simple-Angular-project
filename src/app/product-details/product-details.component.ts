@@ -42,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
     this.fetchProduct(this.productId);
   }
 
-  fetchProduct(productId: number): void {
+  private fetchProduct(productId: number): void {
     this.productService.getProductById(productId).subscribe({
       next: (data) => {
         if (data) {
@@ -58,7 +58,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  calculateRating(reviews: Product["review"]): void {
+  private calculateRating(reviews: Product["review"]): void {
     this.averageRating = this.ratingService.calculateAverageRating(reviews);
     this.stars = this.ratingService.calculateStarRating(this.averageRating);
   }
