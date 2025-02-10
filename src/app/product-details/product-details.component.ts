@@ -38,11 +38,11 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.fetchProduct();
+    this.fetchProduct(this.productId);
   }
 
-  fetchProduct(): void {
-    this.productService.getProductById(this.productId).subscribe({
+  fetchProduct(productId: number): void {
+    this.productService.getProductById(productId).subscribe({
       next: (data) => {
         if (data) {
           this.product = data;
