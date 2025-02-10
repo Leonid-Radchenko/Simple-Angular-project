@@ -1,5 +1,5 @@
 :host {
-  --text-color: #333;
+  --link-text-color: rgb(106, 106, 248);
 }
 
 mat-icon {
@@ -8,7 +8,7 @@ mat-icon {
 }
 
 .product-details {
-  color: var(--text-color);
+  color: var(--primary-text-color);
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -88,36 +88,12 @@ mat-icon {
 }
 
 .close-button {
-  color: #fff;
   margin-top: 20px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  cursor: pointer;
-}
-
-.close-button:hover {
-  background-color: #0056b3;
 }
 
 .product-details__color {
   text-align: center;
 }
-
-/* .product-details__thumbnails {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.product-details__thumbnails img {
-  margin: 5px;
-  width: 60px;
-  height: 50px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-} */
 
 .product-details__thumbnails {
   display: flex;
@@ -127,7 +103,6 @@ mat-icon {
 }
 
 .product-details__thumbnails img {
-  /* margin: 5px; */
   width: 100%;
   height: auto;
   border: 1px solid #ccc;
@@ -140,7 +115,6 @@ mat-icon {
 }
 
 .product-details__info h1 {
-  font-family: 'Roboto';
   font-size: 30px;
   margin-bottom: 10px;
 }
@@ -162,7 +136,7 @@ mat-icon {
 }
 
 .product-reviews {
-  color: rgb(106, 106, 248);
+  color: var(--link-text-color);
   margin-left: 5px;
   &:hover {
     text-decoration: underline;
@@ -183,15 +157,11 @@ mat-icon {
 
 
 .product-description__info a{
-  color: rgb(106, 106, 248);
+  color: var(--link-text-color);
 }
 
 .product-price {
   margin-top: 20px;
-}
-
-.bold-text {
-  font-weight: bold;
 }
 
 .product-details__options {
@@ -205,8 +175,6 @@ mat-icon {
 
 .product-details__options select {
   width: 100%;
-  padding: 7px;
-  border-radius: 5px;
 }
 
 
@@ -219,48 +187,22 @@ mat-icon {
 .product-qty input {
   margin-top: 10px;
   width: 25%;
-  padding: 7px;
-  border: 1px solid #333;
-  border-radius: 5px;
 }
 
 .product-details__buttons {
   margin-top: 20px;
 }
 
-.btn {
-  display: inline-flex;  
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 .btn-primary {
-  color: white;
-  background-color: #0da72e;
-  &:hover {
-    opacity: 0.8;
-  }
+  margin-right: 10px;
 }
 
 .btn-primary mat-icon {
-  color: white;
+  color: var(--light-text-color);
   margin-right: 8px;
 }
 
-.btn-secondary {
-  color: #333;
-  background-color: #d3d3d3;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
 .btn-secondary mat-icon {
-  color: #333;
+  color: var(--primary-text-color);
   margin-right: 8px;
 }

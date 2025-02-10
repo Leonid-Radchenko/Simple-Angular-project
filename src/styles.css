@@ -1,5 +1,13 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+:root {
+  --primary-color: #0da72e;
+  --secondary-color: #d3d3d3;
+  --primary-text-color: #333;
+  --light-text-color: white;
+  --close-btn-bg-color: #007bff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,4 +29,51 @@ address {
 a,
 button {
   cursor: pointer;
+}
+
+h1 {
+  font-family: 'Roboto';
+}
+
+input {
+  padding: 7px;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 5px;
+}
+
+select {
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.close-button {
+  color: var(--light-text-color);
+  background-color: var(--close-btn-bg-color);
+}
+
+.btn-primary {
+  color: var(--light-text-color);
+  background-color: var(--primary-color);
+}
+
+.btn-secondary {
+  color: var(--primary-text-color);
+  background-color: var(--secondary-color);
+}
+
+.bold-text {
+  font-weight: bold;
 }
