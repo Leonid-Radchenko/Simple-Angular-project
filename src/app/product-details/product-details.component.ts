@@ -22,13 +22,18 @@ import { Star } from '../models/star.model';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent implements OnInit {
-
   productId!: number;
+
   product!: Product | null;
+
   stars: Star[] = [];
+
   averageRating: number = 0;
+
   showImageModal: boolean = false;
+
   showFullDescription: boolean = false;
+  
   showReviewsModal: boolean = false;
 
   constructor(

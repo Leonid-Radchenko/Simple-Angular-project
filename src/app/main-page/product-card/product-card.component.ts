@@ -17,6 +17,7 @@ export class ProductCardComponent {
   @Input() product!: Product;
 
   discountedPrice!: number;
+  
   discountColor!: string;
 
   constructor(private router: Router) {}
