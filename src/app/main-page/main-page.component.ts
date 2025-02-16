@@ -8,6 +8,7 @@ import { ProductService } from '../shared/services/product.service';
 
 @Component({
     selector: 'app-main-page',
+    standalone: true,
     imports: [ProductCardComponent, CommonModule, SortByPipe],
     templateUrl: './main-page.component.html',
     styleUrl: './main-page.component.css'
