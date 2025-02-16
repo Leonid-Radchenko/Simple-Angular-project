@@ -1,0 +1,7 @@
+<div class="stars">
+  <span *ngFor="let star of stars">
+    <mat-icon>
+      {{ star.fill === 100 ? 'star' : (star.fill > 0 ? 'star_half' : 'star_outline') }}
+    </mat-icon>
+  </span>
+</div>

@@ -8,6 +8,7 @@ import { RatingService } from '../services/rating.service';
 import { ReviewCountPipe } from '../pipes/review-count.pipe';
 import { DiscountPricePipe } from '../pipes/discount-price.pipe';
 import { Star } from '../models/star.model';
+import { RatingComponent } from '../shared/components/rating/rating.component';
 
 @Component({
   selector: 'app-product-details',
@@ -17,6 +18,7 @@ import { Star } from '../models/star.model';
     MatIconModule, 
     ReviewCountPipe, 
     DiscountPricePipe,
+    RatingComponent,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
@@ -65,7 +67,6 @@ export class ProductDetailsComponent implements OnInit {
 
   private calculateRating(reviews: Product["review"]): void {
     this.averageRating = this.ratingService.calculateAverageRating(reviews);
-    this.stars = this.ratingService.calculateStarRating(this.averageRating);
   }
 
   toggleVisibility(targetVisibility: 'showImageModal' | 'showFullDescription' | 'showReviewsModal'): void {

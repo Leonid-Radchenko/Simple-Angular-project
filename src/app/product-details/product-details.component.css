@@ -2,11 +2,6 @@
   --link-text-color: rgb(106, 106, 248);
 }
 
-mat-icon {
-  color: gold;
-  font-size: 24px;
-}
-
 .product-details {
   color: var(--primary-text-color);
   display: flex;
