@@ -48,7 +48,7 @@
         <label for="message" class="label">Message *</label>
         <textarea id="message" class="textarea" required></textarea>
       </div>     
-      <button type="submit" class="button-submit">Send</button>
+      <app-button [config]="submitButtonConfig" type="submit"  customClass="button-submit"/>
     </form>
   </div>
 </div>

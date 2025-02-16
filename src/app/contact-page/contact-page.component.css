@@ -53,6 +53,7 @@
 }
 
 .form-container {
+  position: relative;
   flex: 1;
   height: 100%;
   padding: 1rem;
@@ -97,17 +98,11 @@
   height: 150px;
 }
 
-.button-submit {
-  color: var(--white-text-color);
-  text-align: center;
-  margin-top: 3rem;
-  width: 100%;
-  padding: 1rem 0;
-  background-color: var(--button-bg-color);
-  text-transform: uppercase;
-  &:hover {
-    opacity: 0.85;
-  }
+::ng-deep .button-submit {
+  position: absolute;
+  right: 1rem;
+  margin-top: 25px;
+  padding: 10px 30px;
 }
 
 @media (max-width: 768px) {

@@ -58,7 +58,8 @@
             </div>
           </div>
           <div class="close-btn-container">
-            <button class="btn close-button" (click)="toggleVisibility('showReviewsModal')">Close</button>
+            <!-- <button class="btn close-button" (click)="toggleVisibility('showReviewsModal')">Close</button> -->
+            <app-button [config]="closeButtonConfig" (clickEvent)="toggleVisibility('showReviewsModal')"></app-button>
           </div>
         </div>
       </div>
@@ -109,12 +110,15 @@
       
       
       <div class="product-details__buttons">
-        <button class="btn btn-primary">
+        <!-- <button class="btn btn-primary">
           <mat-icon>shopping_cart</mat-icon> Add to cart
         </button>
         <button class="btn btn-secondary">
           <mat-icon>favorite_border</mat-icon> Add to Wish List
-        </button>
+        </button> -->
+
+        <app-button [config]="addToCartButtonConfig"></app-button>
+        <app-button [config]="addToWishListButtonConfig"></app-button>
       </div>
     </div>
   </div>

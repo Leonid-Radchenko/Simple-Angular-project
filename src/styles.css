@@ -46,34 +46,6 @@ select {
   border-radius: 5px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.close-button {
-  color: var(--light-text-color);
-  background-color: var(--close-btn-bg-color);
-}
-
-.btn-primary {
-  color: var(--light-text-color);
-  background-color: var(--primary-color);
-}
-
-.btn-secondary {
-  color: var(--primary-text-color);
-  background-color: var(--secondary-color);
-}
-
 .bold-text {
   font-weight: bold;
 }

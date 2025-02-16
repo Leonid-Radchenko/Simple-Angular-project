@@ -9,6 +9,8 @@ import { Star } from '../shared/models/star.model';
 import { RatingComponent } from '../shared/components/rating/rating.component';
 import { ProductService } from '../shared/services/product.service';
 import { RatingService } from '../shared/services/rating.service';
+import { ButtonComponent } from '../shared/components/button/button.component';
+import { ButtonConfig } from '../shared/models/button.model';
 
 @Component({
     selector: 'app-product-details',
@@ -18,6 +20,7 @@ import { RatingService } from '../shared/services/rating.service';
         ReviewCountPipe,
         DiscountPricePipe,
         RatingComponent,
+        ButtonComponent,
     ],
     templateUrl: './product-details.component.html',
     styleUrl: './product-details.component.css'
@@ -36,6 +39,23 @@ export class ProductDetailsComponent implements OnInit {
   showFullDescription: boolean = false;
   
   showReviewsModal: boolean = false;
+
+  closeButtonConfig: ButtonConfig = {
+    label: 'Close',
+    color: 'primary',
+  };
+
+  addToCartButtonConfig: ButtonConfig = {
+    label: 'Add to cart',
+    color: 'success',
+    icon: 'shopping_cart'
+  }
+
+  addToWishListButtonConfig: ButtonConfig = {
+    label: 'Add to Wish List',
+    color: 'secondary',
+    icon: 'favorite_border'
+  }
 
   constructor(
     private route: ActivatedRoute,

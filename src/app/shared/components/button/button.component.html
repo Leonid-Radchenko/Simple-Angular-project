@@ -1,0 +1,9 @@
+<button
+  [attr.type]="type"
+  [ngClass]="[config.color || 'primary', customClass]"
+  [disabled]="config.disabled"
+  (click)="onClick()"
+>
+  <mat-icon *ngIf="config.icon">{{ config.icon }}</mat-icon>
+  <span>{{ config.label }}</span>
+</button>
