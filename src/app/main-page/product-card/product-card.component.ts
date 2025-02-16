@@ -7,11 +7,10 @@ import { Router } from '@angular/router';
 import { DiscountPricePipe } from '../../shared/pipes/discount-price.pipe';
 
 @Component({
-  selector: 'app-product-card',
-  standalone: true,
-  imports: [CommonModule, LimitCharactersPipe, DiscountPricePipe],
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.css'
+    selector: 'app-product-card',
+    imports: [CommonModule, LimitCharactersPipe, DiscountPricePipe],
+    templateUrl: './product-card.component.html',
+    styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
   @Input() product!: Product;

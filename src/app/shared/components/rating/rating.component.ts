@@ -4,11 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { Star } from '../../models/star.model';
 
 @Component({
-  selector: 'app-rating',
-  standalone: true,
-  imports: [NgFor, MatIconModule],
-  templateUrl: './rating.component.html',
-  styleUrl: './rating.component.css'
+    selector: 'app-rating',
+    imports: [NgFor, MatIconModule],
+    templateUrl: './rating.component.html',
+    styleUrl: './rating.component.css'
 })
 export class RatingComponent {
   @Input() rating: number = 0;

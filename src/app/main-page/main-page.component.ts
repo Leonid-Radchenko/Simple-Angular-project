@@ -7,11 +7,10 @@ import { Observable } from 'rxjs';
 import { ProductService } from '../shared/services/product.service';
 
 @Component({
-  selector: 'app-main-page',
-  standalone: true,
-  imports: [ProductCardComponent, CommonModule, SortByPipe],
-  templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.css'
+    selector: 'app-main-page',
+    imports: [ProductCardComponent, CommonModule, SortByPipe],
+    templateUrl: './main-page.component.html',
+    styleUrl: './main-page.component.css'
 })
 export class MainPageComponent implements OnInit {
   products$: Observable<Product[]> | null = null;

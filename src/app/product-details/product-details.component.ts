@@ -11,17 +11,16 @@ import { ProductService } from '../shared/services/product.service';
 import { RatingService } from '../shared/services/rating.service';
 
 @Component({
-  selector: 'app-product-details',
-  standalone: true,
-  imports: [
-    CommonModule, 
-    MatIconModule, 
-    ReviewCountPipe, 
-    DiscountPricePipe,
-    RatingComponent,
-  ],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css',
+    selector: 'app-product-details',
+    imports: [
+        CommonModule,
+        MatIconModule,
+        ReviewCountPipe,
+        DiscountPricePipe,
+        RatingComponent,
+    ],
+    templateUrl: './product-details.component.html',
+    styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
   productId!: number;
