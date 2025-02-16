@@ -8,7 +8,6 @@ import { DiscountPricePipe } from '../../shared/pipes/discount-price.pipe';
 
 @Component({
     selector: 'app-product-card',
-    standalone: true,
     imports: [CommonModule, LimitCharactersPipe, DiscountPricePipe],
     templateUrl: './product-card.component.html',
     styleUrl: './product-card.component.css'
