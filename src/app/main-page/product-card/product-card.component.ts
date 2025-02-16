@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Product } from '../../models/product.model';
-import { LimitCharactersPipe } from '../../pipes/limit-characters.pipe';
-import { getDiscountColor } from '../../utils/price.utils';
+import { Product } from '../../shared/models/product.model';
+import { LimitCharactersPipe } from '../../shared/pipes/limit-characters.pipe';
+import { getDiscountColor } from '../../shared/utils/price.utils';
 import { Router } from '@angular/router';
-import { DiscountPricePipe } from '../../pipes/discount-price.pipe';
+import { DiscountPricePipe } from '../../shared/pipes/discount-price.pipe';
 
 @Component({
   selector: 'app-product-card',

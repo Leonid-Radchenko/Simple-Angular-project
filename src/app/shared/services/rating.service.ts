@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Star } from '../models/star.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from '../shared/models/product.model';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { RatingService } from '../services/rating.service';
-import { ReviewCountPipe } from '../pipes/review-count.pipe';
-import { DiscountPricePipe } from '../pipes/discount-price.pipe';
-import { Star } from '../models/star.model';
+import { ReviewCountPipe } from '../shared/pipes/review-count.pipe';
+import { DiscountPricePipe } from '../shared/pipes/discount-price.pipe';
+import { Star } from '../shared/models/star.model';
 import { RatingComponent } from '../shared/components/rating/rating.component';
+import { ProductService } from '../shared/services/product.service';
+import { RatingService } from '../shared/services/rating.service';
 
 @Component({
   selector: 'app-product-details',
@@ -54,7 +54,7 @@ export class ProductDetailsComponent implements OnInit {
       next: (data) => {
         if (data) {
           this.product = data;
-          this.calculateRating(this.product.review || []);
+          this.calculateRating(this.product?.review || []);
         } else {
           console.warn('Product not found');
         }
