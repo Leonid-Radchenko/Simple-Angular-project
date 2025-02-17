@@ -4,14 +4,14 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
-  { path: '', 
-    component: MainPageComponent
+  { path: '',
+    loadComponent: () => import('./main-page/main-page.component').then(m => m.MainPageComponent)
   },
   { path: 'contacts', 
-    component: ContactPageComponent
+    loadComponent: () => import('./contact-page/contact-page.component').then(m => m.ContactPageComponent)
   },
   { path: 'products/:id',
-    component: ProductDetailsComponent
+    loadComponent: () => import('./product-details/product-details.component').then(m => m.ProductDetailsComponent)
   },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
