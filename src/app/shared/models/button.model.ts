@@ -4,4 +4,6 @@ export interface ButtonConfig {
   className?: string;
   icon?: string;
   disabled?: boolean;
+  type: 'button' | 'submit' | 'reset';
+  customClass?: string;
 }

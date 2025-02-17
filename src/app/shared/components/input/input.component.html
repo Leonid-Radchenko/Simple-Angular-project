@@ -1,0 +1,31 @@
+<div class="form-group">
+  <label *ngIf="config.showLabel !== false" [for]="config.id">
+    {{ config.label }} <span *ngIf="config.required">*</span>
+  </label>
+
+  <ng-container *ngIf="config.type !== 'textarea'; else textareaField">
+    <input
+      [type]="config.type || 'text'"
+      [id]="config.id"
+      [placeholder]="config.placeholder || ''"
+      [required]="config.required"
+      [class]="config.customClass"
+      [value]="value"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+    />
+  </ng-container>
+
+  <ng-template #textareaField>
+    <textarea
+      [id]="config.id"
+      [placeholder]="config.placeholder || ''"
+      [required]="config.required"
+      [class]="config.customClass"
+      [value]="value"
+      [rows]="config.rows"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+    ></textarea>
+  </ng-template>
+</div>

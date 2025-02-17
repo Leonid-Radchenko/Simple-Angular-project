@@ -1,6 +1,6 @@
 <button
-  [attr.type]="type"
-  [ngClass]="[config.color || 'primary', customClass]"
+  [attr.type]="config.type"
+  [ngClass]="[config.color || 'primary', config.customClass || '']"
   [disabled]="config.disabled"
   (click)="onClick()"
 >

@@ -12,8 +12,7 @@ import { ButtonConfig } from '../../models/button.model';
 })
 export class ButtonComponent {
   @Input() config!: ButtonConfig;
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
-  @Input() customClass: string = '';
+
   @Output() clickEvent = new EventEmitter<void>();
 
   onClick() {

@@ -70,38 +70,13 @@
   max-width: 800px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.label {
-  color: var(--label-text-color);
-  font-size: 17px;
-  margin: 2rem 0 1rem 0;
-}
-
-.input,
-.textarea {
-  font-size: 18px;
-  padding: 10px;
-  border: 2px solid var(--input-border-color);
-  background-color: var(--input-bg-color);
-}
-
-.input:focus {
-  border-color: var(--input-border-color--focus);
-}
-
-.textarea {
-  max-width: 800px;
-  height: 150px;
+::ng-deep .form .form-group {
+  margin-bottom: 30px;
 }
 
 ::ng-deep .button-submit {
   position: absolute;
   right: 1rem;
-  margin-top: 25px;
   padding: 10px 30px;
 }
 

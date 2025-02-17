@@ -43,18 +43,21 @@ export class ProductDetailsComponent implements OnInit {
   closeButtonConfig: ButtonConfig = {
     label: 'Close',
     color: 'primary',
+    type: 'button'
   };
 
   addToCartButtonConfig: ButtonConfig = {
     label: 'Add to cart',
     color: 'success',
-    icon: 'shopping_cart'
+    icon: 'shopping_cart',
+    type: 'button'
   }
 
   addToWishListButtonConfig: ButtonConfig = {
     label: 'Add to Wish List',
     color: 'secondary',
-    icon: 'favorite_border'
+    icon: 'favorite_border',
+    type: 'button'
   }
 
   constructor(
