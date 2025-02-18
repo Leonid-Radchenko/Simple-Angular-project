@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/product.model';
 import { LimitCharactersPipe } from '../../shared/pipes/limit-characters.pipe';
 import { getDiscountColor } from '../../shared/utils/price.utils';
@@ -12,11 +12,9 @@ import { DiscountPricePipe } from '../../shared/pipes/discount-price.pipe';
     templateUrl: './product-card.component.html',
     styleUrl: './product-card.component.css'
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit{
   @Input() product!: Product;
 
-  discountedPrice!: number;
-  
   discountColor!: string;
 
   constructor(private router: Router) {}
