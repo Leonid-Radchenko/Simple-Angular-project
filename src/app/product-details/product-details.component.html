@@ -7,13 +7,15 @@
           [alt]="product?.name" 
         />
       </div>
-      <div class="modal-overlay" *ngIf="showImageModal" (click)="toggleVisibility('showImageModal')">
-        <img 
-          class="modal-image" 
-          [src]="product?.imgUrl" 
-          [alt]="product?.name" 
-        />
-      </div>
+      @if (showImageModal) {
+        <div class="modal-overlay" (click)="toggleVisibility('showImageModal')">
+          <img 
+            class="modal-image" 
+            [src]="product?.imgUrl" 
+            [alt]="product?.name" 
+          />
+        </div>
+      }
       <p class="product-details__color">
         {{ (product?.color ?? []).join(' / ') }}
       </p>
@@ -24,6 +26,7 @@
       />
       </div>
     </div>
+
     <div class="product-details__info">
       <h1>
         {{ product?.name }}
@@ -45,31 +48,37 @@
         </p>
       </div>
 
-      <div class="modal-overlay" *ngIf="showReviewsModal" (click)="toggleVisibility('showReviewsModal')">
-        <div class="modal-content" (click)="$event.stopPropagation()">
-          <h2>Reviews</h2>
-          <div class="reviews">
-            <div class="review" *ngFor="let review of product?.review">
-              <div class="review-header">
-                <h3>{{ review.author }}</h3>
-                <app-rating [rating]="review.rating" />
-              </div>
-              <p>{{ review.text }}</p>
+      @if (showReviewsModal) {
+        <div class="modal-overlay" (click)="toggleVisibility('showReviewsModal')">
+          <div class="modal-content" (click)="$event.stopPropagation()">
+            <h2>Reviews</h2>
+            <div class="reviews">
+              @for (review of product?.review; track review) {
+                <div class="review">
+                  <div class="review-header">
+                    <h3>{{ review.author }}</h3>
+                    <app-rating [rating]="review.rating" />
+                  </div>
+                  <p>{{ review.text }}</p>
+                </div>
+              }
+            </div>
+            <div class="close-btn-container">
+              <app-button [config]="closeButtonConfig" (clickEvent)="toggleVisibility('showReviewsModal')"></app-button>
             </div>
           </div>
-          <div class="close-btn-container">
-            <app-button [config]="closeButtonConfig" (clickEvent)="toggleVisibility('showReviewsModal')"></app-button>
-          </div>
         </div>
-      </div>
+      }
 
       <p class="product-description__info">
         {{ showFullDescription ? product?.description : (product?.description | slice:0:200) }}
-        <span *ngIf="(product?.description?.length ?? 0) > 200">
-          <a href="javascript:void(0)" (click)="toggleVisibility('showFullDescription')">
-            {{ showFullDescription ? '(Read Less)' : '... (Read More)' }}
-          </a>
-        </span>
+        @if ((product?.description?.length ?? 0) > 200) {
+          <span>
+            <a href="javascript:void(0)" (click)="toggleVisibility('showFullDescription')">
+              {{ showFullDescription ? '(Read Less)' : '... (Read More)' }}
+            </a>
+          </span>
+        }
       </p>
 
       <h3 class="product-price">

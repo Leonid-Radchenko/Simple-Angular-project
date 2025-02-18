@@ -1,9 +1,15 @@
 <div class="form-group">
-  <label *ngIf="config.showLabel !== false" [for]="config.id">
-    {{ config.label }} <span *ngIf="config.required">*</span>
-  </label>
+  @if (config.showLabel !== false) {
+    <label [for]="config.id">
+      {{ config.label }}
 
-  <ng-container *ngIf="config.type !== 'textarea'; else textareaField">
+      @if (config.required) {
+        <span>*</span>
+      }
+    </label>
+  }
+
+  @if (config.type !== 'textarea') {
     <input
       [type]="config.type || 'text'"
       [id]="config.id"
@@ -14,9 +20,7 @@
       (input)="onInput($event)"
       (blur)="onTouched()"
     />
-  </ng-container>
-
-  <ng-template #textareaField>
+  } @else {
     <textarea
       [id]="config.id"
       [placeholder]="config.placeholder || ''"
@@ -27,5 +31,5 @@
       (input)="onInput($event)"
       (blur)="onTouched()"
     ></textarea>
-  </ng-template>
+  }
 </div>

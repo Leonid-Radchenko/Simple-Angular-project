@@ -4,6 +4,8 @@
   [disabled]="config.disabled"
   (click)="onClick()"
 >
-  <mat-icon *ngIf="config.icon">{{ config.icon }}</mat-icon>
+  @if (config.icon) {
+    <mat-icon>{{ config.icon }}</mat-icon>
+  }
   <span>{{ config.label }}</span>
 </button>
