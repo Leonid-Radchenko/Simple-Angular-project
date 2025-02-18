@@ -1,29 +1,8 @@
 <div class="contact-us-container">
   <div class="contact-info">
-    <div class="contact-info-group">
-      <div class="contact-info-group-title">
-        <img src="assets/images/icons/pin-49.png" alt="Location Icon" class="contact-info-group-title-icon">
-        <span>Address</span>
-      </div>
-      <address class="address">
-        Khreshchatyk 77<br>
-        Kyiv, Ukraine
-      </address>
-    </div>
-    <div class="contact-info-group">
-      <div class="contact-info-group-title">
-        <img src="assets/images/icons/phone-504.png" alt="Phone Icon" class="contact-info-group-title-icon">
-        <span>Let's Talk</span>
-      </div>
-      <p><a href="tel:+380787878787">+380 78 787 87 87</a></p>
-    </div>
-    <div class="contact-info-group">
-      <div class="contact-info-group-title">
-        <img src="assets/images/icons/mail-5888.png" alt="Mail Icon" class="contact-info-group-title-icon">
-        <span>General Support</span>
-      </div>
-      <p><a href="mailto:contact@example.com">contact&#64;example.com</a></p>
-    </div>
+    @for (info of contactInfo; track info.id) {
+      <app-contact-info [info]="info" />
+    }
   </div>
   <div class="form-container">
     <h2 class="form-container-title">Contact Us</h2>

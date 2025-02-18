@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { ButtonConfig } from '../shared/models/button.model';
 import { InputComponent } from '../shared/components/input/input.component';
 import { InputConfig } from '../shared/models/input.model';
+import { ContactInfo } from '../shared/models/contact-info.model';
+import { ContactInfoComponent } from '../shared/components/contact-info/contact-info.component';
+import { ContactInfoService } from '../shared/services/contact-info.service';
 
 @Component({
     selector: 'app-contact-page',
-    imports: [ButtonComponent, InputComponent],
+    imports: [ButtonComponent, InputComponent, ContactInfoComponent],
     templateUrl: './contact-page.component.html',
     styleUrl: './contact-page.component.css',
 })
 export class ContactPageComponent {
+  private contactInfoService = inject(ContactInfoService);
+
+  contactInfo: ContactInfo[] = this.contactInfoService.getContactInfo();
+
   submitButtonConfig: ButtonConfig = {
     label: 'Send',
     color: 'success',
     type: 'submit',
     customClass: 'button-submit'
-  }
+  };
 
   nameInputConfig: InputConfig = {
     id: 'name',
@@ -25,7 +32,7 @@ export class ContactPageComponent {
     label: 'Name',
     required: true,
     // placeholder: 'Enter your name'
-  }
+  };
 
   emailInputConfig: InputConfig = {
     id: 'email',
@@ -34,7 +41,7 @@ export class ContactPageComponent {
     label: 'Email',
     required: true,
     // placeholder: 'Enter your email'
-  }
+  };
 
   phoneInputConfig: InputConfig = {
     id: 'phone',
@@ -43,7 +50,7 @@ export class ContactPageComponent {
     label: 'Phone',
     required: true,
     // placeholder: 'Enter your phone'
-  }
+  };
 
   subjectInputConfig: InputConfig = {
     id: 'subject',
@@ -52,7 +59,7 @@ export class ContactPageComponent {
     label: 'Subject',
     required: true,
     // placeholder: 'Enter your subject'
-  }
+  };
 
   messageInputConfig: InputConfig = {
     id: 'message',
@@ -62,5 +69,5 @@ export class ContactPageComponent {
     required: true,
     // placeholder: 'Enter your message',
     rows: 5
-  }
+  };
 }

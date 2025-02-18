@@ -1,0 +1,16 @@
+<div class="contact-info-group">
+  <div class="contact-info-group-title">
+    <img [src]="info.icon" [alt]="info.title + ' Icon'" class="contact-info-group-title-icon">
+    <span>{{ info.title }}</span>
+  </div>
+
+  @if (!info.link) {
+    <address class="address">
+      {{ info.content }}
+    </address>
+  } @else {
+    <p>
+      <a [href]="info.link">{{ info.content }}</a>
+    </p>
+  }
+</div>

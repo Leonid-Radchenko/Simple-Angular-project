@@ -28,30 +28,6 @@
   background-size: cover;
 }
 
-.contact-info-group-title {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.contact-info-group-title-icon {
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
-  filter: invert(1) brightness(2);
-}
-
-.contact-info-group-title span {
-  font-size: 30px;
-}
-
-.contact-info-group p,
-.address {
-  color: var(--green-text-color);
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
 .form-container {
   position: relative;
   flex: 1;
