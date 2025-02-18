@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Product } from '../shared/models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -28,6 +28,12 @@ import { ReviewComponent } from '../shared/components/review/review.component';
     styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+
+  private productService = inject(ProductService);
+
+  private ratingService = inject(RatingService);
+
   productId!: number;
 
   product!: Product | null;
@@ -61,12 +67,6 @@ export class ProductDetailsComponent implements OnInit {
     icon: 'favorite_border',
     type: 'button'
   }
-
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService,
-    private ratingService: RatingService
-  ) {}
 
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));

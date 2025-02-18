@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/product.model';
 import { LimitCharactersPipe } from '../../shared/pipes/limit-characters.pipe';
 import { getDiscountColor } from '../../shared/utils/price.utils';
@@ -17,7 +17,7 @@ export class ProductCardComponent implements OnInit{
 
   discountColor!: string;
 
-  constructor(private router: Router) {}
+  private router = inject(Router);
 
   ngOnInit() {
     this.discountColor = getDiscountColor(this.product.discount);

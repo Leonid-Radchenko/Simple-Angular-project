@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CommonModule } from '@angular/common';
 import { Product } from '../shared/models/product.model';
@@ -13,7 +13,7 @@ import { ProductService } from '../shared/services/product.service';
     styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-  constructor(private productService: ProductService) {}
+  private productService = inject(ProductService);
 
   get products$(): Observable<Product[]> {
     return this.productService.getProducts();
