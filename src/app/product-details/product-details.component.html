@@ -54,13 +54,7 @@
             <h2>Reviews</h2>
             <div class="reviews">
               @for (review of product?.review; track review) {
-                <div class="review">
-                  <div class="review-header">
-                    <h3>{{ review.author }}</h3>
-                    <app-rating [rating]="review.rating" />
-                  </div>
-                  <p>{{ review.text }}</p>
-                </div>
+                <app-review [review]="review" />
               }
             </div>
             <div class="close-btn-container">

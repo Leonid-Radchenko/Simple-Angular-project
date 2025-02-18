@@ -11,6 +11,7 @@ import { ProductService } from '../shared/services/product.service';
 import { RatingService } from '../shared/services/rating.service';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { ButtonConfig } from '../shared/models/button.model';
+import { ReviewComponent } from '../shared/components/review/review.component';
 
 @Component({
     selector: 'app-product-details',
@@ -21,6 +22,7 @@ import { ButtonConfig } from '../shared/models/button.model';
         DiscountPricePipe,
         RatingComponent,
         ButtonComponent,
+        ReviewComponent,
     ],
     templateUrl: './product-details.component.html',
     styleUrl: './product-details.component.css'

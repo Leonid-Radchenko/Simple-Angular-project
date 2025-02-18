@@ -33,12 +33,6 @@
   text-decoration: underline;
 }
 
-.review-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
 .product-details__color {
   text-align: center;
 }
