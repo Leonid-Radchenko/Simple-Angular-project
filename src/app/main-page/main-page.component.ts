@@ -12,12 +12,10 @@ import { ProductService } from '../shared/services/product.service';
     templateUrl: './main-page.component.html',
     styleUrl: './main-page.component.css'
 })
-export class MainPageComponent implements OnInit {
-  products$: Observable<Product[]> | null = null;
-
+export class MainPageComponent {
   constructor(private productService: ProductService) {}
 
-  ngOnInit() {
-    this.products$ = this.productService.getProducts();
+  get products$(): Observable<Product[]> {
+    return this.productService.getProducts();
   }
 }
