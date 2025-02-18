@@ -105,8 +105,9 @@
       </div>
       
       <div class="product-details__buttons">
-        <app-button [config]="addToCartButtonConfig"></app-button>
-        <app-button [config]="addToWishListButtonConfig"></app-button>
+        <app-button [config]="addToCartButtonConfig" />
+        <app-button [config]="addToWishListButtonConfig" />
+        <app-button [config]="backButtonConfig" (click)="goBack()" />
       </div>
     </div>
   </div>

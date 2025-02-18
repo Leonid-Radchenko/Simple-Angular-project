@@ -12,6 +12,7 @@ import { RatingService } from '../shared/services/rating.service';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { ButtonConfig } from '../shared/models/button.model';
 import { ReviewComponent } from '../shared/components/review/review.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-details',
@@ -33,6 +34,8 @@ export class ProductDetailsComponent implements OnInit {
   private productService = inject(ProductService);
 
   private ratingService = inject(RatingService);
+
+  private router = inject(Router);
 
   productId!: number;
 
@@ -68,6 +71,13 @@ export class ProductDetailsComponent implements OnInit {
     type: 'button'
   }
 
+  backButtonConfig: ButtonConfig = {
+    label: 'Back',
+    color: 'primary',
+    type: 'button',
+    icon: 'arrow_back'
+  }
+
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     this.fetchProduct(this.productId);
@@ -95,5 +105,9 @@ export class ProductDetailsComponent implements OnInit {
 
   toggleVisibility(targetVisibility: 'showImageModal' | 'showFullDescription' | 'showReviewsModal'): void {
     this[targetVisibility] = !this[targetVisibility];
+  }
+
+  goBack(): void {
+    this.router.navigate(['/']);
   }
 }
