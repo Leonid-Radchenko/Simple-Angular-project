@@ -1,11 +1,10 @@
-import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Star } from '../../models/star.model';
 
 @Component({
     selector: 'app-rating',
-    imports: [NgFor, MatIconModule],
+    imports: [MatIconModule],
     templateUrl: './rating.component.html',
     styleUrl: './rating.component.css'
 })

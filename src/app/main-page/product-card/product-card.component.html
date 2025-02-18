@@ -8,7 +8,9 @@
     <p class="product-description">{{ product.description | limitCharacters: 35 }}</p>
     <p class="product-shop">{{ product.shop }}</p>
     <div class="product-size">
-      <span *ngFor="let size of product.size">{{ size }}</span>
+      @for (size of product.size; track size) {
+        <span>{{ size }}</span>
+      }
     </div>
     <p class="product-price">
       Price: <span [ngStyle]="{ color: discountColor }">{{ product.price | discountPrice: product.discount }}</span>

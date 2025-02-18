@@ -58,7 +58,6 @@
             </div>
           </div>
           <div class="close-btn-container">
-            <!-- <button class="btn close-button" (click)="toggleVisibility('showReviewsModal')">Close</button> -->
             <app-button [config]="closeButtonConfig" (clickEvent)="toggleVisibility('showReviewsModal')"></app-button>
           </div>
         </div>
@@ -81,23 +80,17 @@
         <label for="color"><b>Color</b></label>
         <select id="color" required>
           <option value="" disabled selected>Select color</option>
-          <option 
-            *ngFor="let color of product?.color" 
-            [value]="color"
-          >
-          {{ color }}
-          </option>
+          @for (color of product?.color; track color) {
+            <option [value]="color">{{ color }}</option>
+          }
         </select>
         
         <label for="size"><b>Size</b></label>
         <select id="size" required>
           <option value="" disabled selected>Select size</option>
-          <option 
-            *ngFor="let size of product?.size" 
-            [value]="size"
-          >
-          {{ size }}
-          </option>
+          @for (size of product?.size; track size) {
+            <option [value]="size">{{ size }}</option>
+          }
         </select>
       </div>
       
@@ -108,15 +101,7 @@
         <input id="quantity" type="number" min="1" value="1" />
       </div>
       
-      
       <div class="product-details__buttons">
-        <!-- <button class="btn btn-primary">
-          <mat-icon>shopping_cart</mat-icon> Add to cart
-        </button>
-        <button class="btn btn-secondary">
-          <mat-icon>favorite_border</mat-icon> Add to Wish List
-        </button> -->
-
         <app-button [config]="addToCartButtonConfig"></app-button>
         <app-button [config]="addToWishListButtonConfig"></app-button>
       </div>

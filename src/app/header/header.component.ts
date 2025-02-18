@@ -13,7 +13,14 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
   navLinks = [
-    {title: 'Store', url: '/'},
-    {title: 'Contact Us', url: '/contacts'},
+    {
+      id: 'store',
+      title: 'Store', 
+      url: '/'
+    },
+    {
+      id: 'contact',
+      title: 'Contact Us', 
+      url: '/contacts'},
   ]
 }
