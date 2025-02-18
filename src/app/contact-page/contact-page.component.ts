@@ -6,6 +6,7 @@ import { InputConfig } from '../shared/models/input.model';
 import { ContactInfo } from '../shared/models/contact-info.model';
 import { ContactInfoComponent } from '../shared/components/contact-info/contact-info.component';
 import { ContactInfoService } from '../shared/services/contact-info.service';
+import { FormConfigService } from '../shared/services/form-config.service';
 
 @Component({
     selector: 'app-contact-page',
@@ -16,58 +17,16 @@ import { ContactInfoService } from '../shared/services/contact-info.service';
 export class ContactPageComponent {
   private contactInfoService = inject(ContactInfoService);
 
+  private formConfigService = inject(FormConfigService);
+
   contactInfo: ContactInfo[] = this.contactInfoService.getContactInfo();
 
+  inputConfigs: InputConfig[] = this.formConfigService.getContactFormInputs();
+  
   submitButtonConfig: ButtonConfig = {
     label: 'Send',
     color: 'success',
     type: 'submit',
     customClass: 'button-submit'
-  };
-
-  nameInputConfig: InputConfig = {
-    id: 'name',
-    type: 'text',
-    showLabel: true,
-    label: 'Name',
-    required: true,
-    // placeholder: 'Enter your name'
-  };
-
-  emailInputConfig: InputConfig = {
-    id: 'email',
-    type: 'email',
-    showLabel: true,
-    label: 'Email',
-    required: true,
-    // placeholder: 'Enter your email'
-  };
-
-  phoneInputConfig: InputConfig = {
-    id: 'phone',
-    type: 'tel',
-    showLabel: true,
-    label: 'Phone',
-    required: true,
-    // placeholder: 'Enter your phone'
-  };
-
-  subjectInputConfig: InputConfig = {
-    id: 'subject',
-    type: 'text',
-    showLabel: true,
-    label: 'Subject',
-    required: true,
-    // placeholder: 'Enter your subject'
-  };
-
-  messageInputConfig: InputConfig = {
-    id: 'message',
-    type: 'textarea',
-    showLabel: true,
-    label: 'Message',
-    required: true,
-    // placeholder: 'Enter your message',
-    rows: 5
   };
 }

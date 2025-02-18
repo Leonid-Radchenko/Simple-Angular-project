@@ -7,11 +7,9 @@
   <div class="form-container">
     <h2 class="form-container-title">Contact Us</h2>
     <form class="form">
-      <app-input [config]="nameInputConfig" />
-      <app-input [config]="emailInputConfig" />
-      <app-input [config]="phoneInputConfig" />
-      <app-input [config]="subjectInputConfig" />
-      <app-input [config]="messageInputConfig" />
+      @for (config of inputConfigs; track config) {
+        <app-input [config]="config" />
+      }
       
       <app-button [config]="submitButtonConfig" />
     </form>
